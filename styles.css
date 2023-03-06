@@ -1,0 +1,61 @@
+body{
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 1vh;
+}
+
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.emote { /* Mirror the crescent */
+    transform:scale(-1, 1);
+    width:fit-content;
+  }
+
+
+/* Styling the books container */
+
+.books-container{
+
+    padding: 40px;
+    display: grid;
+    grid-template-areas: "book book book";
+    gap: 30px;
+
+}
+
+
+.book{
+    grid-area: "book"; 
+    height: 400px;
+    width: auto;
+    border: solid 2px;
+
+    border-radius: 25px;
+}
+
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.github-icon {
+    transition: transform .4s ease-in-out;
+}
+
+.github-icon:hover {
+    transform: rotate(-360deg);
+}
