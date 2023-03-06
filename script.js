@@ -9,15 +9,31 @@ function Book(title, author, pages, cover, read) {
 }
 
 function addBookToLibrary() {
-  bookTitle = prompt("What is the title of your book?"); // This should be switched to user input
+  // This will be changed to an input form
+  bookTitle = prompt("What is the title of your book?");
   bookAuthor = prompt("What is the author of this book?");
   bookPages = prompt("How many pages are in this book?");
   bookCover = prompt("Add a url for an image cover");
   bookread = prompt("Did you read this book or no?");
 
-  let book = new Book(bookTitle, bookAuthor, bookPages, bookread);
+  let i = new Book(bookTitle, bookAuthor, bookPages, bookread);
+  let book = document.createElement("div");
+  book.classList.add("book");
+  booksContainer.appendChild(book);
 
-  myLibrary.push(book);
+  img = document.createElement("img");
+  img.classList.add("cover-image");
+  book.appendChild(img);
+  img.src = bookCover;
+  console.log(bookCover);
+
+  title = document.createElement("p");
+  book.appendChild(title);
+  title.innerHTML = bookTitle;
+
+  readScroller = document.createElement("div"); // Styling missing
+  readScroller.classList.add("read-status");
+  book.appendChild(readScroller);
 }
 
 let theHobbit = new Book(
@@ -47,6 +63,37 @@ let theBigLebowski = new Book(
 );
 myLibrary.push(theBigLebowski);
 
-for (let i of myLibrary) {
-  console.log(i);
+let theBigLebdowski = new Book(
+  "The Big lebowski",
+  "another author",
+  "877",
+  "https://m.media-amazon.com/images/I/71UbLUFNHXL._AC_SY445_.jpg",
+  "Yes read"
+);
+myLibrary.push(theBigLebdowski);
+
+const booksContainer = document.getElementById("books-container");
+for (const i of myLibrary) {
+  let book = document.createElement("div");
+  book.classList.add("book");
+  booksContainer.appendChild(book);
+
+  img = document.createElement("img");
+  img.classList.add("cover-image");
+  book.appendChild(img);
+  img.src = i.cover;
+
+  title = document.createElement("p");
+  book.appendChild(title);
+  title.innerHTML = i.title;
+
+  readScroller = document.createElement("div"); // Styling missing
+  readScroller.classList.add("read-status");
+  book.appendChild(readScroller);
 }
+
+// The ADD a book button
+const addBook = document.querySelector(".add-book");
+addBook.addEventListener("click", (e) => {
+  addBookToLibrary();
+});

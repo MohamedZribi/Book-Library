@@ -1,7 +1,8 @@
 body{
     margin-left: 80px;
     margin-right: 80px;
-    height: 1vh;
+    min-height: 100vh;
+
 }
 
 
@@ -19,16 +20,15 @@ body{
 .emote { /* Mirror the crescent */
     transform:scale(-1, 1);
     width:fit-content;
-  }
+}
 
 
 /* Styling the books container */
 
-.books-container{
-
+#books-container{
     padding: 40px;
     display: grid;
-    grid-template-areas: "book book book";
+    grid-template-areas: "book book book book";
     gap: 30px;
 
 }
@@ -37,14 +37,22 @@ body{
 .book{
     grid-area: "book"; 
     height: 400px;
-    width: auto;
-    border: solid 2px;
-
+    width: 300px;
     border-radius: 25px;
 }
 
+.cover-image{
+    height: 60%;
+    width: 100%;
+    border-radius: 25px;
+
+
+}
+/* Footer */
 
 .footer{
+    position: sticky;
+    top: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
